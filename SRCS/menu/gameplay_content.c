@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:55:39 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:11:19 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:19:02 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void			gameplay_menu(t_sdl *sdl, t_env *env)
 		set_ttf(env);
 		if (env->game_difficulty == 1)
 		{
-			if (!(env->texte  = SDL_LoadBMP(GAME_DIF)))
+			if (!(env->texte = SDL_LoadBMP(GAME_DIF)))
 			{
 				ft_putendl(SDL_GetError());
 				exit(0);
@@ -149,7 +149,7 @@ void			gameplay_menu(t_sdl *sdl, t_env *env)
 		}
 		else if (env->game_sensitivity == 1)
 		{
-			if (!(env->texte  = SDL_LoadBMP(GAME_SENS)))
+			if (!(env->texte = SDL_LoadBMP(GAME_SENS)))
 			{
 				ft_putendl(SDL_GetError());
 				exit(0);
@@ -157,7 +157,7 @@ void			gameplay_menu(t_sdl *sdl, t_env *env)
 		}
 		else if (env->game_controls == 1)
 		{
-			if (!(env->texte  = SDL_LoadBMP(GAME_CONTROL)))
+			if (!(env->texte = SDL_LoadBMP(GAME_CONTROL)))
 			{
 				ft_putendl(SDL_GetError());
 				exit(0);
@@ -165,7 +165,7 @@ void			gameplay_menu(t_sdl *sdl, t_env *env)
 		}
 		else if (env->game_apply == 1)
 		{
-			if (!(env->texte  = SDL_LoadBMP(GAME_APPLY)))
+			if (!(env->texte = SDL_LoadBMP(GAME_APPLY)))
 			{
 				ft_putendl(SDL_GetError());
 				exit(0);
@@ -173,17 +173,11 @@ void			gameplay_menu(t_sdl *sdl, t_env *env)
 		}
 		else if (env->game_return == 1)
 		{
-			if (!(env->texte  = SDL_LoadBMP(GAME_RETURN)))
+			if (!(env->texte = SDL_LoadBMP(GAME_RETURN)))
 			{
 				ft_putendl(SDL_GetError());
 				exit(0);
 			}
-		}
-		if (env->texte == NULL)
-		{
-			ft_putendl("gameplay_menu 1/n");
-			ft_putendl(SDL_GetError());
-			exit(0);
 		}
 		SDL_RenderClear(env->ren);
 		if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
