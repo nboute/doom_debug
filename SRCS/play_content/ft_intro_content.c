@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:41 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 19:39:54 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:57:36 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void    ft_intro_content_p1(t_env *env)
 		env->rect_intro.w = 60;
 		env->rect_intro.h = 50;
 	printf("||C|%p|%s\n", env->police2, SDL_GetError());
+	char *tmp;
+	tmp = ft_strdup("Sergei");
 		env->surf =
-			TTF_RenderText_Blended(env->police2, "Sergei", env->color);
+			TTF_RenderText_Blended(env->police2, tmp, env->color);
 	printf("||D\n");
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
