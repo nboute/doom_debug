@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 03:48:08 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 19:23:54 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:31:52 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,8 +210,11 @@ int					ft_display_game(t_env *env, t_elem *floor)
 	printf("A\n");
 	if (env->intro == 1)
 		ft_intro(env);
+	printf("B\n");
 	ft_countfps(floor);
+	printf("C\n");
 	ft_printfps(0, floor);
+	printf("D\n");
 	env->timer = SDL_AddTimer(500, ft_printfps, floor);
 	while (1)
 	{

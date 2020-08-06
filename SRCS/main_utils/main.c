@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 11:53:36 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 18:14:39 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:31:43 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		main(int ac, char **av)
 	t_map	map;
 	t_env	env;
 
-	getchar();
 	ft_bzero((void*)&sdl, sizeof(t_sdl));
 	ft_bzero((void*)&map, sizeof(t_map));
 	ft_bzero((void*)&env, sizeof(t_env));
