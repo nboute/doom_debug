@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:55:39 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:19:02 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 01:02:53 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,14 @@ void			choose_difficulty(t_sdl *sdl, t_env *env)
 
 void			choose_sensitivity(t_sdl *sdl, t_env *env)
 {
-	env->sensitivity_value = ft_itoa(env->sens_value);
+	if (env->sensitivity_value)
+		free(env->sensitivity_value);
+	env->sensitivity_value = NULL;
+	if (!(env->sensitivity_value = ft_itoa(env->sens_value)))
+	{
+		ft_putendl("itoa");
+		exit(0);
+	}
 	set_ttf_rect(env, sdl->res_width / 1.7, sdl->res_hight / 3.5,
 		sdl->res_width / 22, sdl->res_hight / 14);
 	if (!(env->surf2 = TTF_RenderText_Blended(env->police2,
