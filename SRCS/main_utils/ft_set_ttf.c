@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:35:10 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 19:34:06 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:43:47 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	set_ttf(t_env *env)
 {
+	if (env->police2)
+		TTF_CloseFont(env->police2);
+	env->police2 = NULL;
 	if (!(env->police2 = TTF_OpenFont("./RSCS/fonts/wolfenstein.ttf", 60)))
 {
 ft_putendl(TTF_GetError());

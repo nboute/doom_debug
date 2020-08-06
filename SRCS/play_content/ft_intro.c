@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:25 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 19:39:54 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:43:53 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void	ft_init_intro(t_env *env)
 	env->color.g = 255;
 	env->color.b = 255;
 	env->color.a = 0;
+	if (env->police2)
+		TTF_CloseFont(env->police2);
+	env->police2 = NULL;
 	if (!(env->police2 = TTF_OpenFont("./RSCS/fonts/ARCADECLASSIC.TTF", 60)))
 	{
 		ft_putendl(TTF_GetError());
