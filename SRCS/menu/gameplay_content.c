@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:55:39 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 20:47:22 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:11:19 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ void			gameplay_menu(t_sdl *sdl, t_env *env)
 				exit(0);
 			}
 		}
-		if (env->texte < 0)
+		if (env->texte == NULL)
 		{
 			ft_putendl("gameplay_menu 1/n");
 			ft_putendl(SDL_GetError());

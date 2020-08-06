@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 16:01:28 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 20:47:13 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:10:54 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,6 @@ void	control_menu(t_env *env)
 	if (env->show_controls == 1)
 	{
 		if (!(env->texte  = SDL_LoadBMP(SHOW_CONTROLS)))
-		{
-			ft_putendl(SDL_GetError());
-			exit(0);
-		}
-		if (env->texte < 0)
 		{
 			ft_putendl("control_menu 1");
 			ft_putendl(SDL_GetError());

@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 17:11:50 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 20:47:27 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:12:03 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	multi_menu(t_env *env)
 				exit(0);
 			}
 		}
-		if (env->texte < 0)
+		if (env->text == NULL)
 		{
 			ft_putendl("multi_menu 1/n");
 			ft_putendl(SDL_GetError());

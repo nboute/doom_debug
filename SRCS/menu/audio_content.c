@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 14:26:11 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 20:47:02 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:10:25 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,7 +230,7 @@ void	audio_menu(t_sdl *sdl, t_env *env)
 				exit(0);
 			}
 		}
-		if (env->texte < 0)
+		if (env->texte == NULL)
 		{
 			ft_putendl("audio_menu 1");
 			ft_putendl(SDL_GetError());

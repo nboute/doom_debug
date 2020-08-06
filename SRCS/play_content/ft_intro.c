@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:25 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:05:50 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:14:37 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,18 @@ void	ft_baba(t_env *env)
 	env->rect_baba.y = (env->res_hight / 2) - 75;
 	env->rect_baba.w = 150;
 	env->rect_baba.h = 150;
+	if (env->bmpSurf)
+	{
+		SDL_FreeSurface(env->bmpSurf);
+		env->bmpSurf = NULL;
+	}
 	if ((env->bmpSurf = SDL_LoadBMP("RSCS/play/baba1.bmp")) < 0)
 		printf("SDL_load image failed: %s\n", SDL_GetError());
+	if (env->bmpTex)
+	{
+		SDL_DestroyTexture(env->bmpTex);
+		env->bmpTex = NULL;
+	}
 	if (!(env->bmpTex = SDL_CreateTextureFromSurface(env->ren, env->bmpSurf)))
 	{
 		ft_putendl(SDL_GetError());
