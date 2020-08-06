@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:25 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 19:35:46 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:39:54 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_init_intro(t_env *env)
 		ft_putendl(TTF_GetError());
 		exit(0);
 	}
+	printf("LOADED FONT:%p\n", env->police2);
 	SDL_SetRenderDrawColor(env->ren, 0, 0, 0, 255);
 	SDL_RenderClear(env->ren);
 	SDL_RenderPresent(env->ren);
