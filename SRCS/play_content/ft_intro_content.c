@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:41 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 20:47:54 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:37:19 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,44 @@
 
 void    ft_intro_content_p1(t_env *env)
 {
+	printf("||A\n");
 	if (env->introstep == 0)
 	{
+	printf("||B\n");
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 60;
 		env->rect_intro.h = 50;
+	printf("||C\n");
 		env->surf =
 			TTF_RenderText_Blended(env->police2, "Sergei", env->color);
+	printf("||D\n");
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
 			exit(0);
 		}
+	printf("||E\n");
 		ft_render_intro(env);
+	printf("||F\n");
 	}
 	if (env->introstep == 1)
 	{
+	printf("||G\n");
 		SDL_RenderClear(env->ren);
+	printf("||H\n");
 		env->rect_intro.w = 100;
 		env->rect_intro.h = 50;
 		env->surf =
 			TTF_RenderText_Blended(env->police2, "Sergei   !", env->color);
+	printf("||I\n");
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
 			exit(0);
 		}
+	printf("||J\n");
 		ft_render_intro(env);
+	printf("||K\n");
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:25 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 19:34:59 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:35:46 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,29 @@ void	ft_init_intro(t_env *env)
 
 void	ft_intro(t_env *env)
 {
-		printf("A\n");
+		printf("|A\n");
 	ft_init_intro(env);
-		printf("B\n");
+		printf("|B\n");
 	env->timer2 = SDL_AddTimer(500, ft_speak, env);
-		printf("C\n");
+		printf("|C\n");
 
 	while (env->introstep != 10)
 	{
-		printf("D\n");
+		printf("|D\n");
 		ft_intro_content_p1(env);
-		printf("E\n");
+		printf("|E\n");
 		ft_intro_content_p2(env);
-		printf("F\n");
+		printf("|F\n");
 		ft_intro_content_p3(env);
-		printf("G\n");
+		printf("|G\n");
 		ft_intro_content_p4(env);
-		printf("H\n");
+		printf("|H\n");
 		ft_intro_content_p5(env);
-		printf("I\n");
+		printf("|I\n");
 	}
-		printf("J\n");
+		printf("|J\n");
 	SDL_RemoveTimer(env->timer2);
-		printf("K\n");
+		printf("|K\n");
 	env->intro = 0;
 }
 
