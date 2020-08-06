@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:16:01 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 17:47:21 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 01:34:53 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,8 @@ int				ft_init_events(t_env *env, t_sdl *sdl, t_elem *floor)
 {
 	while (1)
 	{
-		while (SDL_PollEvent(&env->events))
-		{
-			menu_events_list(env, sdl, floor);
-		}
+		SDL_WaitEvent(&env->events);
+		menu_events_list(env, sdl, floor);
 		if (exit_from_menu(env) == 1)
 			return (1);
 		if (env->apply_video_op == 1)
