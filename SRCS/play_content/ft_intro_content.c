@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:41 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 23:36:58 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:05:50 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,13 @@ void    ft_intro_content_p2(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 180;
 		env->rect_intro.h = 50;
-		env->surf
+		if (!(env->surf
 			= TTF_RenderText_Blended(env->police2, "wake   up   Sergei"
-				, env->color);
+				, env->color))))
+		{
+			ft_putendl(TTF_GetError());
+			exit(0);
+		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
@@ -83,9 +87,12 @@ void    ft_intro_content_p3(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 210;
 		env->rect_intro.h = 50;
-		env->surf =
-			TTF_RenderText_Blended(env->police2,
-				"I  am   the  BabaYaga", env->color);
+		if (!(env->surf = TTF_RenderText_Blended(env->police2,
+			"I  am   the  BabaYaga", env->color)))
+		{
+			ft_putendl(SDL_GetError());
+			exit(0);
+		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
@@ -99,9 +106,12 @@ void    ft_intro_content_p3(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 360;
 		env->rect_intro.h = 50;
-		env->surf =
-			TTF_RenderText_Blended(env->police2,
-				"I  summonned  you  from  the  hell", env->color);
+		if (!(env->surf = TTF_RenderText_Blended(env->police2,
+			"I  summonned  you  from  the  hell", env->color)))
+		{
+			ft_putendl(SDL_GetError());
+			exit(0);
+		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
@@ -119,9 +129,12 @@ void    ft_intro_content_p4(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 450;
 		env->rect_intro.h = 50;
-		env->surf =
-			TTF_RenderText_Blended(env->police2,
-				"It s  time  to  accomplish  your  purpose", env->color);
+		if (!(env->surf = TTF_RenderText_Blended(env->police2,
+			"It s  time  to  accomplish  your  purpose", env->color)))
+		{
+			ft_putendl(SDL_GetError());
+			exit(0);
+		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
@@ -135,9 +148,12 @@ void    ft_intro_content_p4(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 390;
 		env->rect_intro.h = 50;
-		env->surf =
-			TTF_RenderText_Blended(env->police2,
-				"It s  normal  if  you  feel  dizy", env->color);
+		if (!(env->surf = TTF_RenderText_Blended(env->police2,
+			"It s  normal  if  you  feel  dizy", env->color)))
+		{
+			ft_putendl(SDL_GetError());
+			exit(0);
+		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
@@ -155,9 +171,12 @@ void    ft_intro_content_p5(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 380;
 		env->rect_intro.h = 50;
-		env->surf =
-			TTF_RenderText_Blended(env->police2,
-				"You  have  losted  your  memories", env->color);
+		if (!(env->surf = TTF_RenderText_Blended(env->police2,
+			"You  have  losted  your  memories", env->color)))
+		{
+			ft_putendl(SDL_GetError());
+			exit(0);
+		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
@@ -171,9 +190,12 @@ void    ft_intro_content_p5(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 540;
 		env->rect_intro.h = 50;
-		env->surf =
-			TTF_RenderText_Blended(env->police2
-				, "Let s  find  them  in  the  maze  of  your  soul", env->color);
+		if (!(env->surf = TTF_RenderText_Blended(env->police2
+			, "Let s  find  them  in  the  maze  of  your  soul", env->color)))
+		{
+			ft_putendl(SDL_GetError());
+			exit(0);
+		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
 			ft_putendl(SDL_GetError());
