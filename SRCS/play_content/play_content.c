@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 03:48:08 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/07 00:25:21 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:55:11 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,8 @@ static	void		ft_renderer(t_env *env, t_elem *floor)
 		}
 	}
 	if (env->surf)
-	{
 		SDL_FreeSurface(env->surf);
-		env->surf = NULL;
-	}
+	env->surf = NULL;
 	if (floor->fpssurf)
 	{
 		SDL_FreeSurface(floor->fpssurf);
@@ -144,10 +142,8 @@ static	void		ft_render(t_env *env, t_elem *floor)
 {
 	const char *str;
 	if (env->surf)
-	{
 		SDL_FreeSurface(env->surf);
-		env->surf = NULL;
-	}
+	env->surf = NULL;
 	if (!(env->surf = SDL_CreateRGBSurfaceWithFormat(0, env->res_width,
 		env->res_hight, 32, SDL_PIXELFORMAT_RGBA8888)))
 	{
