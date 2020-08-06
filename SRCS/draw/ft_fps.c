@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:36:03 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 19:34:06 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 23:41:56 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ Uint32		ft_printfps(Uint32 intervalle, void *parametre)
 	t_elem *floor;
 
 	floor = parametre;
+	if (floor->fps)
+		ft_strdel(&floor->fps);
 	floor->fps = ftoa(1.0 / floor->frametime, floor->fps);
 	return (intervalle);
 }
