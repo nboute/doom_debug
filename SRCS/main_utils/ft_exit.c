@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:08:24 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/05 20:46:44 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 20:02:11 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_exit_SDL(t_env *env)
 	if (env->win)
 		SDL_DestroyWindow(env->win);
 	env->win = NULL;
+	TTF_Quit();
 	SDL_Quit();
 	return (1);
 }
