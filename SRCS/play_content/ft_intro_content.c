@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:41 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:05:50 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:06:54 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void    ft_intro_content_p2(t_env *env)
 		env->rect_intro.h = 50;
 		if (!(env->surf
 			= TTF_RenderText_Blended(env->police2, "wake   up   Sergei"
-				, env->color))))
+				, env->color)))
 		{
 			ft_putendl(TTF_GetError());
 			exit(0);
