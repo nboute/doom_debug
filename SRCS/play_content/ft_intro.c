@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:25 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:16:22 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:23:42 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ void	ft_intro(t_env *env)
 {
 	ft_init_intro(env);
 	env->timer2 = SDL_AddTimer(500, ft_speak, env);
-	if (env->surf)
-	{
-		SDL_FreeSurface(env->surf);
-		env->surf = NULL;
-	}
 	while (env->introstep != 10)
 	{
 		ft_intro_content_p1(env);
