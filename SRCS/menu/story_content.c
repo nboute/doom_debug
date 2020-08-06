@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 16:43:48 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:12:03 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:21:06 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,6 @@ void	story_menu(t_env *env)
 				ft_putendl(SDL_GetError());
 				exit(0);
 			}
-		}
-		if (env->text == NULL)
-		{
-			ft_putendl("story_menu 1/n");
-			ft_putendl(SDL_GetError());
-			exit(0);
 		}
 		SDL_RenderClear(env->ren);
 		if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))

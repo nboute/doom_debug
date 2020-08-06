@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:16:44 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:12:03 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 00:21:49 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@ void	interface_menu(t_env *env)
 	}
 	if (env->menu == 1)
 	{
-		if (env->texte == NULL)
-		{
-			ft_putendl("interface_menu 1/n");
-			ft_putendl(SDL_GetError());
-			exit(0);
-		}
 		SDL_RenderClear(env->ren);
 		if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
 		{
@@ -113,12 +107,6 @@ void	option_menu(t_env *env)
 		}
 		if (env->op_menu == 1)
 		{
-			if (env->text == NULL)
-			{
-				ft_putendl("option_menu 1/n");
-				ft_putendl(SDL_GetError());
-				exit(0);
-			}
 			SDL_RenderClear(env->ren);
 			if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
 			{
@@ -143,12 +131,6 @@ void	option_menu(t_env *env)
 
 void	video_menu2(t_sdl *sdl, t_env *env)
 {
-	if (env->texte == NULL)
-	{
-		ft_putendl("video_menu 1/n");
-		ft_putendl(SDL_GetError());
-		exit(0);
-	}
 	SDL_RenderClear(env->ren);
 	if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
 	{
