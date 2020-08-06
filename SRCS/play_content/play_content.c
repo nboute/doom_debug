@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 03:48:08 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 17:37:05 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:23:54 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ static	void		ft_render(t_env *env, t_elem *floor)
 
 int					ft_display_game(t_env *env, t_elem *floor)
 {
+	printf("A\n");
 	if (env->intro == 1)
 		ft_intro(env);
 	ft_countfps(floor);
