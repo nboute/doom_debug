@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 16:09:38 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/05 20:47:17 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 01:46:57 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void    ft_cursor(t_env *env)
 	{
 		env->cursx = env->events.button.x;
 		env->cursy = env->events.button.y;
-		printf("%d|%d\n", env->cursx, env->cursy);
 	}
 	else
 		SDL_GetMouseState(&env->cursx, &env->cursy);
