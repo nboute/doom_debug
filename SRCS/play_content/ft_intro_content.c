@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:41 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 19:37:19 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 19:38:14 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    ft_intro_content_p1(t_env *env)
 		SDL_RenderClear(env->ren);
 		env->rect_intro.w = 60;
 		env->rect_intro.h = 50;
-	printf("||C\n");
+	printf("||C|%p\n", env->police2);
 		env->surf =
 			TTF_RenderText_Blended(env->police2, "Sergei", env->color);
 	printf("||D\n");
