@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checkfloor.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nico <nico@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 13:42:03 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/05 01:11:58 by nico             ###   ########.fr       */
+/*   Updated: 2020/08/07 00:47:09 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void			ft_filmap(t_elem *floor)
 	while (i < floor->max_floor)
 	{
 		j = 0;
-		while (floor[i].map[j] && floor[i].map[j + 1])
+		while (floor[i].map[j])
 		{
 			k = 0;
-			while (floor[i].map[j + 1][k + 1] && floor[i].map[j][k])
+			while (floor[i].map[j][k])
 			{
 				ft_strcpy(floor[i].new[j + 1][k + 1], floor[i].map[j][k]);
 				k++;
@@ -49,7 +49,6 @@ static	void	ft_newmapmalloc(t_elem *floor, int i, int j, int k)
 	else
 		floor[i].new[j][k] = (char *)ft_memalloc(sizeof(char) * 10);
 	ft_strcpy(floor[i].new[j][k], "10000000");
-
 }
 
 static	void	ft_newmapinit(t_elem *floor)
