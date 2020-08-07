@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 03:44:46 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 17:38:16 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 17:21:20 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ SDL_Surface			*ft_load_texture(char *file)
 	}
 	if (!(surface = SDL_ConvertSurfaceFormat(stock, SDL_PIXELFORMAT_RGBA8888, 0)))
 	{
+		SDL_FreeSurface(stock);
 		ft_putendl(SDL_GetError());
 		exit(0);
 	}

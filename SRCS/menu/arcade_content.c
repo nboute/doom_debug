@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arcade_content.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 17:11:38 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 19:56:39 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 17:06:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,32 +40,22 @@ void	arcade_menu(t_env *env)
 		if (env->arcade_map == 1)
 		{
 			if (!(env->texte  = SDL_LoadBMP(ARCADE_MAP)))
-			{
-				ft_putendl(SDL_GetError());
-				exit(0);
-			}
+				ft_sdl_error("arcade_map");
 		}
 		else if (env->arcade_return == 1)
 		{
 			if (!(env->texte  = SDL_LoadBMP(ARCADE_RETURN)))
-			{
-				ft_putendl(SDL_GetError());
-				exit(0);
-			}
+				ft_sdl_error("arcade_return");
 		}
 		if (env->texte == NULL)
-			{
-				ft_putendl("arcade_menu");
-				ft_putendl(SDL_GetError());
-				exit(0);
-			}
+			ft_sdl_error("arcade_menu");
 		SDL_RenderClear(env->ren);
 		if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
-			ft_sdl_error();
+			ft_sdl_error(NULL);
 		if (env->texte)
-			ft_free_surface_texte(env);
+			ft_free_surface(&env->texte);
 		SDL_RenderCopy(env->ren, env->fontTex, NULL, NULL);
 		if (env->fontTex)
-			ft_free_texture_fontex(env);
+			ft_free_texture(&env->fontTex);
 	}
 }

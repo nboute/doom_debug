@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:51:39 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 18:45:43 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 17:36:40 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -484,7 +484,7 @@ int 					ft_ctoi(const char *str);
 int						ft_set_sdl(t_sdl *sdl, t_env *env, t_elem *floor);
 int						ft_init_events(t_env *env, t_sdl *sdl, t_elem *floor);
 int                     ft_error(int error);
-int						ft_exit_SDL(t_env *env);
+int						ft_exit_sdl(t_env *env);
 int						ft_set_ttf(t_sdl *sdl, SDL_Surface *bmpSurf);
 
 /*
@@ -722,13 +722,15 @@ void					ft_fly(t_env *env, t_elem *floor);
  */
 
 void					ft_free_tab_telem(t_elem *floor);
-void	    			ft_freetab(char **tab);
-void					ft_freebigtab(char ***tab);
+void	    			ft_freetab(char ***tab);
+void					ft_freebigtab(char ****tab);
 
-void					ft_free_surface_texte(t_env *env);
-void					ft_free_texture_fontex(t_env *env);
-
-void					ft_sdl_error();
+void					ft_free_surface(SDL_Surface **surface);
+void					ft_free_texture(SDL_Texture **texture);
+void					ft_free_structs(t_env *env, t_map *map, t_elem *floor);
+void					ft_sdl_error(char *str);
+void					ft_ttf_error(char *str);
+void					ft_free_surface_tab(SDL_Surface ***surfaces);
 
 
 #endif

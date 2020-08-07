@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 15:03:44 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 18:54:30 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 16:16:53 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static SDL_Window		*ft_windowed_resize_full(SDL_Window *win, t_sdl *sdl)
 	return (win);
 }
 
-static SDL_Window		*ft_fullscren(SDL_Window *win, t_sdl *sdl)
+static SDL_Window		*ft_fullscreen(SDL_Window *win, t_sdl *sdl)
 {
 	if (!(win = SDL_CreateWindow("FORAINSTEIN",
 			SDL_WINDOWPOS_CENTERED,
@@ -62,7 +62,7 @@ static SDL_Window		*ft_fullscren(SDL_Window *win, t_sdl *sdl)
 	return (win);
 }
 
-static SDL_Window		*ft_fullscren_maxres(SDL_Window *win, t_sdl *sdl)
+static SDL_Window		*ft_fullscreen_maxres(SDL_Window *win, t_sdl *sdl)
 {
 	if (!(win = SDL_CreateWindow("FORAINSTEIN",
 			SDL_WINDOWPOS_CENTERED,
@@ -89,8 +89,8 @@ SDL_Window		*ft_create_window(t_sdl *sdl)
 	if (sdl->windowed_resize_full == 1)
 		win = ft_windowed_resize_full(win, sdl);
 	if (sdl->fullscreen == 1)
-		win = ft_fullscren(win, sdl);
+		win = ft_fullscreen(win, sdl);
 	if (sdl->fullscreen_maxres == 1)
-		win = ft_fullscren_maxres(win, sdl);
+		win = ft_fullscreen_maxres(win, sdl);
 	return (win);
 }

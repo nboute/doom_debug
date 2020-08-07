@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printtab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlartigu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 03:47:16 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/06/09 03:47:17 by dlartigu         ###   ########.fr       */
+/*   Updated: 2020/08/07 02:11:06 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		ft_printspawn(t_elem *floor)
 {
-	ft_putendl("\nPlayer position:");
+	ft_putendl("Player position:");
 	ft_putstr("Starting floor: ");
 	ft_putnbr(floor->spawn_floor);
 	ft_putchar('\n');

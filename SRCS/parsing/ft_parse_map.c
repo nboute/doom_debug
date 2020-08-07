@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 03:47:06 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 16:09:19 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 16:51:08 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static t_elem			*ft_create_floors(t_map *map)
 		ft_create_floors_malloc(floor, i);
 	ft_memdel((void **)&map->line);
 	ft_memdel((void **)&map->tmp);
-	ft_freetab(tab);
+	ft_freetab(&tab);
 	return (floor);
 }
 

@@ -6,13 +6,13 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:08:24 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 20:02:11 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 16:54:37 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/prog.h"
 
-int		ft_exit_SDL(t_env *env)
+int		ft_exit_sdl(t_env *env)
 {
 	if (env->police2)
 		TTF_CloseFont(env->police2);
@@ -31,20 +31,36 @@ int		ft_exit_SDL(t_env *env)
 	return (1);
 }
 
-void	ft_sdl_error()
+void	ft_sdl_error(char *str)
 {
 	ft_putendl(SDL_GetError());
+	if (str)
+		ft_putendl(str);
 	exit(0);
 }
 
-void	ft_free_surface_texte(t_env *env)
+void	ft_ttf_error(char *str)
 {
-	SDL_FreeSurface(env->texte);
-	env->texte = NULL;
+	ft_putendl(TTF_GetError());
+	if (str)
+		ft_putendl(str);
+	exit(0);
 }
 
-void	ft_free_texture_fontex(t_env *env)
+void	ft_free_surface(SDL_Surface **surface)
 {
-	SDL_DestroyTexture(env->fontTex);
-	env->fontTex = NULL;
+	if (!surface)
+		return ;
+	if (*surface)
+		SDL_FreeSurface(*surface);
+	*surface = NULL;
+}
+
+void	ft_free_texture(SDL_Texture **texture)
+{
+	if (!texture)
+		return ;
+	if (*texture)
+		SDL_DestroyTexture(*texture);
+	*texture = NULL;
 }

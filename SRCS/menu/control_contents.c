@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 16:01:28 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:10:54 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 17:03:51 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,14 @@ void	control_menu(t_env *env)
 	if (env->show_controls == 1)
 	{
 		if (!(env->texte  = SDL_LoadBMP(SHOW_CONTROLS)))
-		{
-			ft_putendl("control_menu 1");
-			ft_putendl(SDL_GetError());
-			exit(0);
-		}
+			ft_sdl_error(NULL);
 		SDL_RenderClear(env->ren);
 		if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
-		{
-			ft_putendl("control_menu 2");
-			ft_putendl(SDL_GetError());
-			exit(0);
-		}
+			ft_sdl_error("control_menu 2");
 		if (env->texte)
-		{
-			SDL_FreeSurface(env->texte);
-			env->texte = NULL;
-		}
+			ft_free_surface(&env->texte);
 		SDL_RenderCopy(env->ren, env->fontTex, NULL, NULL);
 		if (env->fontTex)
-		{
-			SDL_DestroyTexture(env->fontTex);
-			env->fontTex = NULL;
-		}
+			ft_free_texture(&env->fontTex);
 	}
 }

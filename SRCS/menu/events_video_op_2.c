@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events_video_op_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 16:24:02 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/05 20:37:39 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/06 17:09:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,8 @@ void			apply_video_option2(t_sdl *sdl, t_env *env, t_elem *floor)
 	if (env->text_q_op == 2)
 		floor->texture_res = 3;
 	if (SDL_Init(SDL_INIT_VIDEO))
-	{
-		ft_putendl("apply_video_options2 1");
-		ft_putendl(SDL_GetError());
-		exit(0);
-	}
+		ft_sdl_error("apply_video_options2 1");
 	if (SDL_Init(SDL_INIT_TIMER))
-	{
-		ft_putendl("apply_video_options2 1");
-		ft_putendl(SDL_GetError());
-		exit(0);
-	}
+		ft_sdl_error("apply_video_options2 1");
 	apply_video_option3(sdl, env, floor);
 }

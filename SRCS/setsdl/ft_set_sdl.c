@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:16:01 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 01:34:53 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 17:22:09 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void		ft_initgame(t_env *env, t_elem *floor)
 	ft_initcolors(env, floor);
 	ft_initfps(floor, env);
 	ft_init_texture(floor);
+	
 }
 
 int				ft_init_events(t_env *env, t_sdl *sdl, t_elem *floor)
@@ -91,7 +92,7 @@ void			menu_events_list(t_env *env, t_sdl *sdl, t_elem *floor)
 		interface_menu(env);
 		switch_menu(env);
 		open_options(env);
-		open_play_content(env);	
+		open_play_content(env);
 	}
 	if (env->op_menu == 1)
 	{
@@ -141,7 +142,6 @@ int				ft_set_sdl(t_sdl *sdl, t_env *env, t_elem *floor)
 	SDL_SetWindowIcon(env->win, floor->icon);
 	ft_initgame(env, floor);
 	ft_init_events(env, sdl, floor);
-	ft_exit_SDL(env);
 	return (0);
 }
 

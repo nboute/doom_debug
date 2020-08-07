@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/11 12:29:23 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 17:28:44 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/07 17:40:40 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,19 @@ static	void			ft_walltexturenormal(t_elem *floor)
 
 void			ft_walltexture(t_elem *floor)
 {
-	if (!(floor->walltext = ft_memalloc(sizeof(SDL_Surface) * 11)))
+	if (floor->walltext)
+		ft_free_surface_tab(&floor->walltext);
+	if (!(floor->walltext = ft_memalloc(sizeof(SDL_Surface*) * 11)))
 	{
 		ft_putendl("malloc failed");
 		exit(0);
 	}
+	printf("WALLTEXT:%p\n", floor->walltext);
 	if (floor->texture_res == 1)
 		ft_walltexturenormal(floor);
 	else if (floor->texture_res == 2)
 		ft_walltexturehigh(floor);
 	else if (floor->texture_res == 3)
 		ft_walltextureepic(floor);
+	printf("(%p)\n", floor->walltext[2]);
 }
