@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_textnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlartigu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/11 13:11:42 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/06/11 13:11:42 by dlartigu         ###   ########.fr       */
+/*   Updated: 2020/08/09 08:13:10 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static	void	ft_floor_textnum(t_elem *floor)
 {
 	if ((!(floor[0].new[(int)floor->mapy][(int)floor->mapx][FLOOR_TXT]))
-		|| ft_ctoi(&floor[0].new[(int)floor->mapy][(int)floor->mapx][FLOOR_TXT]) > 3)
+		|| ft_ctoi(&floor[0].new[(int)floor->mapy]
+			[(int)floor->mapx][FLOOR_TXT]) > 3)
 		floor->floor_txtnum = 0;
 	else
 		floor->floor_txtnum =
@@ -25,7 +26,8 @@ static	void	ft_floor_textnum(t_elem *floor)
 static	void	ft_ceiling_textnum(t_elem *floor)
 {
 	if ((!(floor[0].new[(int)floor->mapy][(int)floor->mapx][CEILING_TXT]))
-		|| ft_ctoi(&floor[0].new[(int)floor->mapy][(int)floor->mapx][CEILING_TXT]) > 3)
+		|| ft_ctoi(&floor[0].new[(int)floor->mapy]
+			[(int)floor->mapx][CEILING_TXT]) > 3)
 		floor->ceiling_txtnum = 0;
 	else
 		floor->ceiling_txtnum =
@@ -37,11 +39,11 @@ static	void	ft_wall_textnum(t_elem *floor)
 	if (!(floor[0].new[(int)floor->mapy][(int)floor->mapx][WALL_TEXT]))
 		floor->txtnum = 0;
 	else
-		floor->txtnum = 
-	ft_ctoi(&floor[0].new[(int)floor->mapy][(int)floor->mapx][WALL_TEXT]);
+		floor->txtnum = ft_ctoi(&floor[0].new[(int)floor->mapy]
+			[(int)floor->mapx][WALL_TEXT]);
 }
 
-void	ft_texnum(t_elem *floor)
+void			ft_texnum(t_elem *floor)
 {
 	ft_wall_textnum(floor);
 	ft_ceiling_textnum(floor);

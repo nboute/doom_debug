@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arcade_content.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 17:11:38 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/06 17:06:32 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/07 19:05:46 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,8 @@ void	arcade_menu(t_env *env)
 		SDL_RenderClear(env->ren);
 		if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
 			ft_sdl_error(NULL);
-		if (env->texte)
-			ft_free_surface(&env->texte);
+		ft_free_surface(&env->texte);
 		SDL_RenderCopy(env->ren, env->fontTex, NULL, NULL);
-		if (env->fontTex)
-			ft_free_texture(&env->fontTex);
+		ft_free_texture(&env->fontTex);
 	}
 }

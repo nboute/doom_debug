@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 15:03:44 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/07 16:16:53 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:14:15 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static SDL_Window		*ft_windowed(SDL_Window *win, t_sdl *sdl)
 			SDL_WINDOW_SHOWN
 			| SDL_WINDOW_ALWAYS_ON_TOP)))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	return (win);
 }
@@ -39,8 +38,7 @@ static SDL_Window		*ft_windowed_resize_full(SDL_Window *win, t_sdl *sdl)
 			| SDL_WINDOW_MAXIMIZED
 			| SDL_WINDOW_ALWAYS_ON_TOP)))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	return (win);
 }
@@ -56,8 +54,7 @@ static SDL_Window		*ft_fullscreen(SDL_Window *win, t_sdl *sdl)
 			| SDL_WINDOW_FULLSCREEN
 			| SDL_WINDOW_ALWAYS_ON_TOP)))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	return (win);
 }
@@ -73,15 +70,14 @@ static SDL_Window		*ft_fullscreen_maxres(SDL_Window *win, t_sdl *sdl)
 			| SDL_WINDOW_FULLSCREEN_DESKTOP
 			| SDL_WINDOW_ALWAYS_ON_TOP)))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	return (win);
 }
 
-SDL_Window		*ft_create_window(t_sdl *sdl)
+SDL_Window				*ft_create_window(t_sdl *sdl)
 {
-	SDL_Window *win;
+	SDL_Window 			*win;
 
 	win = NULL;
 	if (sdl->windowed == 1)

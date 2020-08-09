@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:51:39 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 17:36:40 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:43:33 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define PROG_H
 
 # include "../libft/libft.h"
-# include "../SDL2/include/SDL2/SDL.h"
-# include "../SDL2_TTF/include/SDL2/SDL_ttf.h"
+# include "sdl.h"
 # include <sys/types.h>
 # include <sys/sysctl.h>
 # include <pthread.h>
@@ -229,6 +228,7 @@ typedef struct		s_elem
 	int				x;
 	int				y;
 	int 				m;
+	int 				currentstair;
 	int 				txtpos;
 	int 				crosshair;
 	double				olddirx;
@@ -730,6 +730,7 @@ void					ft_free_texture(SDL_Texture **texture);
 void					ft_free_structs(t_env *env, t_map *map, t_elem *floor);
 void					ft_sdl_error(char *str);
 void					ft_ttf_error(char *str);
+void					ft_fct_error(char *str);
 void					ft_free_surface_tab(SDL_Surface ***surfaces);
 
 

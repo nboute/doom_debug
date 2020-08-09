@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_setstruct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:10:01 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/05 16:40:06 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/09 08:00:08 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/prog.h"
 
-static void					ft_set_sdlstruct2(t_sdl *sdl, t_env *env)
+static void		ft_set_sdlstruct2(t_sdl *sdl, t_env *env)
 {
 	if (env->res_op == 1)
 	{
@@ -20,7 +20,6 @@ static void					ft_set_sdlstruct2(t_sdl *sdl, t_env *env)
 		sdl->res_hight = 480;
 		env->res_width = 640;
 		env->res_hight = 480;
-
 	}
 	else if (env->res_op == 2)
 	{
@@ -31,7 +30,7 @@ static void					ft_set_sdlstruct2(t_sdl *sdl, t_env *env)
 	}
 }
 
-static void					ft_set_sdlstruct3(t_sdl *sdl, t_env *env)
+static void		ft_set_sdlstruct3(t_sdl *sdl, t_env *env)
 {
 	if (env->fs_op == 0 && env->res_op == 1)
 	{
@@ -49,7 +48,7 @@ static void					ft_set_sdlstruct3(t_sdl *sdl, t_env *env)
 	}
 }
 
-static void					ft_set_sdlstruct4(t_sdl *sdl, t_env *env)
+static void		ft_set_sdlstruct4(t_sdl *sdl, t_env *env)
 {
 	if (env->fs_op == 0 && env->res_op == 2)
 	{
@@ -67,7 +66,7 @@ static void					ft_set_sdlstruct4(t_sdl *sdl, t_env *env)
 	}
 }
 
-void					ft_set_sdlstruct(t_sdl *sdl, t_env *env)
+void			ft_set_sdlstruct(t_sdl *sdl, t_env *env)
 {
 	ft_set_sdlstruct2(sdl, env);
 	ft_set_sdlstruct3(sdl, env);
@@ -82,7 +81,7 @@ void					ft_set_sdlstruct(t_sdl *sdl, t_env *env)
 		sdl->vsync = 1;
 }
 
-void	set_events_struct(t_env *env)
+void			set_events_struct(t_env *env)
 {
 	env->option = 0;
 	env->menu = 1;

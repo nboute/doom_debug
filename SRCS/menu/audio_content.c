@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 14:26:11 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 17:03:44 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:42:24 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ void	exit_from_audio(t_env *env)
 
 void	choose_volume(t_sdl *sdl, t_env *env)
 {
-	env->char_volume_value = ft_itoa(env->int_volume_value);
+	if (env->char_volume_value)
+		ft_strdel(&env->char_volume_value);
+	if (!(env->char_volume_value = ft_itoa(env->int_volume_value)))
+	{
+		ft_fct_error("itoa");
+	}
 	set_ttf_rect(env, sdl->res_width / 1.7, sdl->res_hight / 4.5,
 		sdl->res_width / 22, sdl->res_hight / 14);
 	if (!(env->surf2

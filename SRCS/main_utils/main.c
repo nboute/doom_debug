@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 11:53:36 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 17:52:19 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 07:50:06 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int		main(int ac, char **av)
 	if (ft_parse_map_param(&map) != 0)
 	{
 		ft_free_structs(&env, &map, map.floor);
-//		ft_free_tab_telem(map.floor);
 		return (ft_error(4));
 	}
 	else
@@ -37,7 +36,6 @@ int		main(int ac, char **av)
 		set_events_struct(&env);
 		ft_set_sdlstruct(&sdl, &env);
 		ft_set_sdl(&sdl, &env, map.floor);
-	//	ft_free_tab_telem(map.floor);
 	}
 	ft_free_structs(&env, &map, map.floor);
 	return (0);

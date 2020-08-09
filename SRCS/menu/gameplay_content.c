@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:55:39 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 17:03:55 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:42:24 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,10 @@ void			choose_difficulty(t_sdl *sdl, t_env *env)
 void			choose_sensitivity(t_sdl *sdl, t_env *env)
 {
 	if (env->sensitivity_value)
-		free(env->sensitivity_value);
-	env->sensitivity_value = NULL;
+		ft_strdel(&env->sensitivity_value);
 	if (!(env->sensitivity_value = ft_itoa(env->sens_value)))
 	{
-		ft_putendl("itoa");
-		exit(0);
+		ft_fct_error("itoa");
 	}
 	set_ttf_rect(env, sdl->res_width / 1.7, sdl->res_hight / 3.5,
 		sdl->res_width / 22, sdl->res_hight / 14);
@@ -119,7 +117,10 @@ void			gameplay_menu(t_sdl *sdl, t_env *env)
 		if (!(env->fontTex = SDL_CreateTextureFromSurface(env->ren, env->texte)))
 			ft_sdl_error("gameplay_menu 2/n");
 		if (env->texte)
-		ft_free_surface(&env->texte);
+		{
+			ft_free_surface(&env->texte);
+		}
+		SDL_RenderCopy(env->ren, env->fontTex, NULL, NULL);
 		if (env->fontTex)
 		ft_free_texture(&env->fontTex);
 		choose_difficulty(sdl, env);

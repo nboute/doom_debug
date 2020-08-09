@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 03:48:08 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/07 01:22:31 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:14:36 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ static	void		ft_renderer(t_env *env, t_elem *floor)
 	if (!(floor->fpssurf =
 		TTF_RenderText_Solid(floor->fpsfont, floor->fps, floor->fpscolor)))
 	{
-		ft_putendl(TTF_GetError());
-		exit(0);
+		ft_ttf_error(NULL);
 	}
 	if (env->text)
 	{
@@ -44,13 +43,11 @@ static	void		ft_renderer(t_env *env, t_elem *floor)
 	SDL_RenderClear(env->ren);
 	if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 	{
-		ft_putendl(TTF_GetError());
-		exit(0);
+		ft_ttf_error(NULL);
 	}
 	if (!(env->fpstext = SDL_CreateTextureFromSurface(env->ren, floor->fpssurf)))
 	{
-		ft_putendl(TTF_GetError());
-		exit(0);
+		ft_ttf_error(NULL);
 	}
 	if (env->surf)
 		SDL_FreeSurface(env->surf);
@@ -62,13 +59,11 @@ static	void		ft_renderer(t_env *env, t_elem *floor)
 	}
 	if (SDL_RenderCopy(env->ren, env->text, NULL, NULL))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	if (SDL_RenderCopy(env->ren, env->fpstext, NULL, &env->rectfps))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	ft_crosshair(env);
 	SDL_RenderPresent(env->ren);
@@ -82,8 +77,7 @@ static	void		ft_render(t_env *env, t_elem *floor)
 	if (!(env->surf = SDL_CreateRGBSurfaceWithFormat(0, env->res_width,
 		env->res_hight, 32, SDL_PIXELFORMAT_RGBA8888)))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	ft_drawrenderer(env, floor);
 	ft_inputs(env, floor);

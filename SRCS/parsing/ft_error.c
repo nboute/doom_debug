@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 13:54:09 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/05 20:37:39 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:14:15 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,11 @@ void	ft_video_op_error(t_sdl *sdl, t_env *env)
 	ft_set_sdlstruct(sdl, env);
 	if (SDL_Init(SDL_INIT_VIDEO))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	if (SDL_Init(SDL_INIT_TIMER))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	env->win = ft_create_window(sdl);
 	SDL_GetWindowBrightness(env->win);

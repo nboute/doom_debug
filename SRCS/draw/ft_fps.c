@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:36:03 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 17:23:26 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:21:34 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void		ft_initfps(t_elem *floor, t_env *env)
 	env->rectfps.h = env->res_hight / 12;
 	if (!(floor->fpsfont = TTF_OpenFont("./RSCS/fonts/wolfenstein.ttf", 60)))
 	{
-		ft_putendl(TTF_GetError());
-		exit(0);
+		ft_ttf_error(NULL);
 	}
 	floor->fpscolor.r = 165;
 	floor->fpscolor.g = 25;

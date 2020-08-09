@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   switch_menu.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcharrou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 17:14:15 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/01/15 16:20:57 by jcharrou         ###   ########.fr       */
+/*   Updated: 2020/08/09 08:09:06 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,28 +72,36 @@ void	switch_menu_3(t_env *env)
 {
 	if (env->events.type == SDL_MOUSEMOTION)
 	{
-		if ((env->cursx > env->res_width / 6) && (env->cursx < (env->res_width / 6 * 5)) && (env->cursy > env->res_hight / 3) && (env->cursy < (env->res_hight / 3) * 1.4))
+		if ((env->cursx > env->res_width / 6) && (env->cursx
+			< (env->res_width / 6 * 5)) && (env->cursy > env->res_hight / 3)
+			&& (env->cursy < (env->res_hight / 3) * 1.4))
 		{
 			env->play = 1;
 			env->mapedit = 0;
 			env->option = 0;
 			env->exit = 0;
 		}
-		if ((env->cursx > env->res_width / 6) && (env->cursx < (env->res_width / 6 * 5)) && (env->cursy > (env->res_hight / 3) * 1.4) && (env->cursy < (env->res_hight / 3) * 1.7))
+		if ((env->cursx > env->res_width / 6) && (env->cursx
+			< (env->res_width / 6 * 5)) && (env->cursy > (env->res_hight / 3)
+			* 1.4) && (env->cursy < (env->res_hight / 3) * 1.7))
 		{
 			env->play = 0;
 			env->mapedit = 1;
 			env->option = 0;
 			env->exit = 0;
 		}
-		if ((env->cursx > env->res_width / 6) && (env->cursx < (env->res_width / 6 * 5)) && (env->cursy > (env->res_hight / 3) * 1.7) && (env->cursy < (env->res_hight / 3) * 2.1))
+		if ((env->cursx > env->res_width / 6) && (env->cursx
+			< (env->res_width / 6 * 5)) && (env->cursy > (env->res_hight / 3)
+			* 1.7) && (env->cursy < (env->res_hight / 3) * 2.1))
 		{
 			env->play = 0;
 			env->mapedit = 0;
 			env->option = 1;
 			env->exit = 0;
 		}
-		if ((env->cursx > env->res_width / 6) && (env->cursx < (env->res_width / 6 * 5)) && (env->cursy > (env->res_hight / 3) * 2.1) && (env->cursy < (env->res_hight / 3) * 2.4))
+		if ((env->cursx > env->res_width / 6) && (env->cursx
+			< (env->res_width / 6 * 5)) && (env->cursy > (env->res_hight / 3)
+			* 2.1) && (env->cursy < (env->res_hight / 3) * 2.4))
 		{
 			env->play = 0;
 			env->mapedit = 0;

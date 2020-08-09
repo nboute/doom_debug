@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:25 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 01:47:06 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:14:36 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	ft_init_intro(t_env *env)
 	env->police2 = NULL;
 	if (!(env->police2 = TTF_OpenFont("./RSCS/fonts/ARCADECLASSIC.TTF", 60)))
 	{
-		ft_putendl(TTF_GetError());
-		exit(0);
+		ft_ttf_error(NULL);
 	}
 	SDL_SetRenderDrawColor(env->ren, 0, 0, 0, 255);
 	SDL_RenderClear(env->ren);
@@ -94,8 +93,7 @@ void	ft_baba(t_env *env)
 	}
 	if (!(env->bmpTex = SDL_CreateTextureFromSurface(env->ren, env->bmpSurf)))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	SDL_RenderCopy(env->ren, env->bmpTex, NULL, &env->rect_baba);
 }

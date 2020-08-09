@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:03:33 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/05 03:35:42 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:36:36 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void				ft_jump(t_env *env, t_elem *floor)
 		if (!(floor->timerjump = SDL_AddTimer(10 * floor->gravity, ft_jumpint,
 			floor)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		floor->previoustime = floor->currenttime;
 		floor->jump = 0;

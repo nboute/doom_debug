@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:08:24 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/07 16:54:37 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:43:52 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_sdl_error(char *str)
 	ft_putendl(SDL_GetError());
 	if (str)
 		ft_putendl(str);
+
 	exit(0);
 }
 
@@ -44,6 +45,15 @@ void	ft_ttf_error(char *str)
 	ft_putendl(TTF_GetError());
 	if (str)
 		ft_putendl(str);
+	
+	exit(0);
+}
+
+void	ft_fct_error(char *str)
+{
+	if (str)
+		ft_putendl(str);
+	
 	exit(0);
 }
 

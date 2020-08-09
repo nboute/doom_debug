@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 13:37:41 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 00:47:54 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:36:36 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ void    ft_intro_content_p1(t_env *env)
 			TTF_RenderText_Blended(env->police2, "Sergei", env->color);
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_render_intro(env);
 	}
@@ -37,8 +36,7 @@ void    ft_intro_content_p1(t_env *env)
 			TTF_RenderText_Blended(env->police2, "Sergei   !", env->color);
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_render_intro(env);
 	}
@@ -55,13 +53,11 @@ void    ft_intro_content_p2(t_env *env)
 			= TTF_RenderText_Blended(env->police2, "wake   up   Sergei"
 				, env->color)))
 		{
-			ft_putendl(TTF_GetError());
-			exit(0);
+		ft_ttf_error(NULL);
 		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_render_intro(env);
 	}
@@ -90,13 +86,11 @@ void    ft_intro_content_p3(t_env *env)
 		if (!(env->surf = TTF_RenderText_Blended(env->police2,
 			"I  am   the  BabaYaga", env->color)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_baba(env);
 		ft_render_intro(env);
@@ -109,13 +103,11 @@ void    ft_intro_content_p3(t_env *env)
 		if (!(env->surf = TTF_RenderText_Blended(env->police2,
 			"I  summonned  you  from  the  hell", env->color)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_baba(env);
 		ft_render_intro(env);
@@ -132,13 +124,11 @@ void    ft_intro_content_p4(t_env *env)
 		if (!(env->surf = TTF_RenderText_Blended(env->police2,
 			"It s  time  to  accomplish  your  purpose", env->color)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_baba(env);
 		ft_render_intro(env);
@@ -151,13 +141,11 @@ void    ft_intro_content_p4(t_env *env)
 		if (!(env->surf = TTF_RenderText_Blended(env->police2,
 			"It s  normal  if  you  feel  dizy", env->color)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_baba(env);
 		ft_render_intro(env);
@@ -174,13 +162,11 @@ void    ft_intro_content_p5(t_env *env)
 		if (!(env->surf = TTF_RenderText_Blended(env->police2,
 			"You  have  losted  your  memories", env->color)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_baba(env);
 		ft_render_intro(env);
@@ -193,13 +179,11 @@ void    ft_intro_content_p5(t_env *env)
 		if (!(env->surf = TTF_RenderText_Blended(env->police2
 			, "Let s  find  them  in  the  maze  of  your  soul", env->color)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		if (!(env->text = SDL_CreateTextureFromSurface(env->ren, env->surf)))
 		{
-			ft_putendl(SDL_GetError());
-			exit(0);
+			ft_sdl_error(NULL);
 		}
 		ft_baba(env);
 		ft_render_intro(env);

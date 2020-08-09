@@ -6,7 +6,7 @@
 #    By: niboute <niboute@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/30 11:39:58 by dlartigu          #+#    #+#              #
-#    Updated: 2020/08/06 19:52:46 by niboute          ###   ########.fr        #
+#    Updated: 2020/08/09 08:51:33 by niboute          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,30 +114,29 @@ SDL2= SDL2/
 
 SDL2_TTF= SDL2_TTF/
 
-INC_SDL2= SDL2/include/SDL2/
-
-INC_SDL2_TTF= SDL2_TTF/include/SDL2/
-
 LIBSDL2_TTF= SDL2_TTF/lib/libSDL2_ttf.a
-
-LD_SDL2_TTF= -L ./SDL2/lib -lSDL2
-
-LD_SDL2_TTF= -L ./SDL2_TTF/lib -lSDL2_ttf
 
 INC_LIBFT= libft/libft.h
 
 LD_LIBFT= -L ./libft -lft
 
-SDL_DEPENDENCIES= $(shell  ./SDL2/bin/sdl2-config --libs)
-
 UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
+		SDL_DEPENDENCIES = $(shell  ./SDL2/bin/sdl2-config --libs) \
+			-L ./SDL2_TTF/lib -lSDL2_ttf
         SDL_DEPENDENCIES += -lfreetype
-		MAKE_DEPLOY= deploy_linux
+		INC_SDL2= SDL2/include/SDL2/
+		INC_SDL2_TTF= SDL2_TTF/include/SDL2/
+		MAKE_DEPLOY = deploy_linux
+		FREETYPE_INSTALLED=$(shell dpkg -l | grep libfreetype6-dev)
     endif
     ifeq ($(UNAME_S),Darwin)
+		SDL_DEPENDENCIES = $(shell sdl2-config --libs) \
+			-L ~/.brew/lib/ -lSDL2_ttf
         SDL_DEPENDENCIES += -L ~/.brew/lib -lfreetype
-		MAKE_DEPLOY= deploy_mac
+		INC_SDL2 = -I ~/.brew/include/SDL2/
+		MAKE_DEPLOY = deploy_mac
+		FREETYPE_INSTALLED=$(shell brew list | grep libfreetype6-dev)
 	endif
 
 CC= clang
@@ -147,17 +146,19 @@ CFLAGS += -I $(INC_SDL2)
 CFLAGS += -I $(INC_SDL2_TTF)
 LDFLAGS += $(SDL_DEPENDENCIES)
 LDFLAGS += $(LD_LIBFT)
-LDFLAGS += $(LD_SDL2)
-LDFLAGS += $(LD_SDL2_TTF)
 LDFLAGS += -L ./libft -lft
 
-all: buildft $(NAME)
+all: buildft check_deploy $(NAME)
 
 buildft:
 	@make --no-print-directory -C libft/
 
+check_deploy:
+	@(test -s ./SDL2 -a FREETYPE_INSTALLED)|| make $(MAKE_DEPLOY)
+
 $(NAME): $(LIB) $(OBJ)
-			$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LDFLAGS) -I $(INC_SDL2) -I $(INC_SDL2_TTF) -I $(INC) -I $(INC_LIBFT)
+			$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LDFLAGS) -I $(INC_SDL2) \
+				-I $(INC_SDL2_TTF) -I $(INC) -I $(INC_LIBFT)
 			@echo "\\n[OK] Compilation de $(NAME)"
 
 %.o: %.c $(HEADERS)
@@ -173,18 +174,23 @@ fclean: clean
 		@echo "[OK] Supression de tous les fichiers"
 
 clean_sdl:
-		rm -rf ./SDL2
-		rm -rf ./SDL2-2.0.12
-		rm -rf ./SDL2-2.0.12.tar.gz
-		rm -rf ./SDL2_TTF
-		rm -rf ./SDL2_ttf-2.0.15
-		rm -rf ./SDL2_ttf-2.0.15.tar.gz
+        ifeq ($(UNAME_S),Linux)
+			rm -rf ./SDL2
+			rm -rf ./SDL2-2.0.12
+			rm -rf ./SDL2-2.0.12.tar.gz
+			rm -rf ./SDL2_TTF
+			rm -rf ./SDL2_ttf-2.0.15
+			rm -rf ./SDL2_ttf-2.0.15.tar.gz
+        endif
 
 deploy:
 		make $(MAKE_DEPLOY)
 
 deploy_linux:
-		sudo apt-get install libfreetype6-dev
+		cp ./.linux/sdl.h INCLUDES/sdl.h
+        ifeq ($(strip $(FREETYPE_INSTALLED)), )
+			sudo apt-get install libfreetype6-dev
+        endif
 		$(MAKE) clean_sdl
 		wget https://www.libsdl.org/release/SDL2-2.0.12.tar.gz -O SDL2-2.0.12.tar.gz \
 		&& tar -xf SDL2-2.0.12.tar.gz \
@@ -207,29 +213,17 @@ deploy_linux:
 		@rm -rf ./SDL2_ttf-2.0.15.tar.gz
 
 deploy_mac:
-		$(MAKE) clean_sdl
-		curl https://www.libsdl.org/release/SDL2-2.0.12.tar.gz -o SDL2-2.0.12.tar.gz \
-		&& tar -xf SDL2-2.0.12.tar.gz \
-		&& (cd SDL2-2.0.12 \
-		&& ./configure --prefix=$(shell pwd)/SDL2 --enable-static --disable-shared \
-		&& make \
-		&& make install)
-		@curl https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz -o SDL2_ttf-2.0.15.tar.gz \
-		&& tar -xf SDL2_ttf-2.0.15.tar.gz \
-		&& (cd SDL2_ttf-2.0.15 \
-		&& ./configure --prefix=$(shell pwd)/SDL2_TTF \
-		--with-sdl-prefix=$(shell pwd)/SDL2 \
-		--with-sdl-exec-prefix=$(shell pwd)/SDL2 --disable-shared \
-		--enable-static \
-		&& make \
-		&& make install)
-		@rm -rf ./SDL2-2.0.12
-		@rm -rf ./SDL2-2.0.12.tar.gz
-		@rm -rf ./SDL2_ttf-2.0.15
-		@rm -rf ./SDL2_ttf-2.0.15.tar.gz
+		cp ./.macos/sdl.h INCLUDES/sdl.h
+        ifeq ($(strip $(FREETYPE_INSTALLED)), )
+			brew install freetype
+        endif
+		ifeq ($(shell brew list | grep sdl2))
+			brew install sdl2
+			brew install sdl_ttf
+		endif
 
 re: fclean all
 
 redeploy: clean_sdl deploy
 
-.PHONY: all clean fclean re buildft clean_sdl deploy redeploy
+.PHONY: all clean fclean re buildft clean_sdl deploy redeploy check_deploy

@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:16:01 by jcharrou          #+#    #+#             */
-/*   Updated: 2020/08/07 17:22:09 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:14:15 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 static void		menu_events_list_2(t_env *env, t_sdl *sdl, t_elem *floor)
 {
-	if(env->audio_menu == 1)
+	if (env->audio_menu == 1)
 	{
 		audio_menu(sdl, env);
 		switch_audio_op(env);
-		
 	}
 	if (env->gameplay_menu == 1)
 	{
@@ -29,7 +28,6 @@ static void		menu_events_list_2(t_env *env, t_sdl *sdl, t_elem *floor)
 	{
 		switch_play_op(env);
 		play_menu(env);
-		
 	}
 	if (env->story_menu == 1)
 	{
@@ -59,7 +57,6 @@ static void		ft_initgame(t_env *env, t_elem *floor)
 	ft_initcolors(env, floor);
 	ft_initfps(floor, env);
 	ft_init_texture(floor);
-	
 }
 
 int				ft_init_events(t_env *env, t_sdl *sdl, t_elem *floor)
@@ -121,8 +118,7 @@ int				ft_set_sdl(t_sdl *sdl, t_env *env, t_elem *floor)
 {
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	SDL_ShowCursor(SDL_DISABLE);
 	env->win = ft_create_window(sdl);
@@ -135,8 +131,7 @@ int				ft_set_sdl(t_sdl *sdl, t_env *env, t_elem *floor)
 	if (!(env->surf = SDL_CreateRGBSurfaceWithFormat(0, env->res_width,
 		env->res_hight, 32, SDL_PIXELFORMAT_RGBA8888)))
 	{
-		ft_putendl(SDL_GetError());
-		exit(0);
+		ft_sdl_error(NULL);
 	}
 	floor->icon = ft_load_texture("./RSCS/icon/wolf_icon.bmp");
 	SDL_SetWindowIcon(env->win, floor->icon);
@@ -144,5 +139,3 @@ int				ft_set_sdl(t_sdl *sdl, t_env *env, t_elem *floor)
 	ft_init_events(env, sdl, floor);
 	return (0);
 }
-
-

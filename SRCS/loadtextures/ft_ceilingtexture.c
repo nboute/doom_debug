@@ -6,7 +6,7 @@
 /*   By: niboute <niboute@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/11 12:29:29 by dlartigu          #+#    #+#             */
-/*   Updated: 2020/08/06 17:30:44 by niboute          ###   ########.fr       */
+/*   Updated: 2020/08/09 08:42:26 by niboute          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ static	void			ft_ceilingtexturenormal(t_elem *floor)
 void			ft_ceilingtexture(t_elem *floor)
 {
 	if (!(floor->ceilingtext = ft_memalloc(sizeof(SDL_Surface) * 4)))
-{
-ft_putendl("malloc failed");
-exit(0);
-}
+	{
+		ft_fct_error("malloc failed");
+	}
 	if (floor->texture_res == 1)
 		ft_ceilingtexturenormal(floor);
 	if (floor->texture_res == 2)
