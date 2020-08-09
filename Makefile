@@ -6,7 +6,7 @@
 #    By: niboute <niboute@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/30 11:39:58 by dlartigu          #+#    #+#              #
-#    Updated: 2020/08/09 08:51:33 by niboute          ###   ########.fr        #
+#    Updated: 2020/08/09 09:59:35 by niboute          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,7 @@ UNAME_S := $(shell uname -s)
 		INC_SDL2_TTF= SDL2_TTF/include/SDL2/
 		MAKE_DEPLOY = deploy_linux
 		FREETYPE_INSTALLED=$(shell dpkg -l | grep libfreetype6-dev)
+		FREEGLUT_INSTALLED=$(shell dpkg -l | grep freeglut3-dev)
     endif
     ifeq ($(UNAME_S),Darwin)
 		SDL_DEPENDENCIES = $(shell sdl2-config --libs) \
@@ -136,7 +137,8 @@ UNAME_S := $(shell uname -s)
         SDL_DEPENDENCIES += -L ~/.brew/lib -lfreetype
 		INC_SDL2 = -I ~/.brew/include/SDL2/
 		MAKE_DEPLOY = deploy_mac
-		FREETYPE_INSTALLED=$(shell brew list | grep libfreetype6-dev)
+		FREETYPE_INSTALLED=$(shell brew list | grep freetype)
+		FREEGLUT_INSTALLED=$(shell brew list | grep freeglut)
 	endif
 
 CC= clang
@@ -191,6 +193,9 @@ deploy_linux:
         ifeq ($(strip $(FREETYPE_INSTALLED)), )
 			sudo apt-get install libfreetype6-dev
         endif
+        ifeq ($(strip $(FREEGLUT_INSTALLED)), )
+			sudo apt-get install freeglut3-dev
+        endif
 		$(MAKE) clean_sdl
 		wget https://www.libsdl.org/release/SDL2-2.0.12.tar.gz -O SDL2-2.0.12.tar.gz \
 		&& tar -xf SDL2-2.0.12.tar.gz \
@@ -216,6 +221,9 @@ deploy_mac:
 		cp ./.macos/sdl.h INCLUDES/sdl.h
         ifeq ($(strip $(FREETYPE_INSTALLED)), )
 			brew install freetype
+        endif
+        ifeq ($(strip $(FREEGLUT_INSTALLED)), )
+			brew install freeglut
         endif
 		ifeq ($(shell brew list | grep sdl2))
 			brew install sdl2
